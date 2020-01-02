@@ -1,0 +1,135 @@
+html,
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  color: black;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  padding: 5px;
+  background: #242424;
+  font-size: 18pt;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+hr {
+  border-color: #242424;
+}
+
+.notesContainer {
+  min-width: 200px;
+  max-width: 500px;
+  height: 500px;
+  background: #f1f1f1;
+  margin: 10px auto;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.notesContainer > h1:first-child {
+  margin: 0;
+}
+
+.inputContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.inputContainer > input,
+.inputContainer button {
+  padding: 5px 7px 5px 7px;
+  margin-bottom: 10px;
+}
+
+.inputContainer > button {
+  width: 20%;
+  min-width: 50px;
+  margin-left: 0px;
+  background: #242424;
+  color: white;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.inputContainer > input {
+  width: 80%;
+  min-width: 100px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+input, button {
+  background: white;
+  border: none;
+  outline: none;
+  font-weight: bolder;
+  font-size: 11pt;
+  font-family: unset;
+  color: black;
+}
+
+input#searchNote {
+  padding: 5px 7px 5px 7px;
+  margin-bottom: 10px;
+  width: 97%;
+  border-radius: 3px;
+}
+
+ol {
+  list-style-type: none;
+  padding: 0;
+}
+
+ol > li {
+  background: white;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12pt;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #f1f1f1;
+}
+
+ol > li:not(#noNotesFound):hover {
+  border: 2px solid #242424;
+}
+
+ol > li.chechked > span {
+  text-decoration: line-through;
+}
+
+ol > li#noNotesFound {
+  background: #f1f1f1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+ol > li[hidden] {
+  display: none;
+}
+
+ol > li.checked > span {
+  text-decoration: line-through;
+  color: #858585;
+}
+/*# sourceMappingURL=style.css.map */
