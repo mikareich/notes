@@ -11,7 +11,7 @@ nav {
   display: flex;
   height: 30px;
   padding: 5px;
-  background: #242424;
+  background: #e7b718;
   font-size: 18pt;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -20,7 +20,7 @@ nav {
 }
 
 hr {
-  border-color: #242424;
+  border-color: #e7b718;
 }
 
 .notesContainer {
@@ -31,6 +31,7 @@ hr {
   margin: 10px auto;
   border-radius: 5px;
   padding: 20px;
+  border: 2px solid #e7b718;
 }
 
 .notesContainer > h1:first-child {
@@ -56,7 +57,7 @@ hr {
   width: 20%;
   min-width: 50px;
   margin-left: 0px;
-  background: #242424;
+  background: #e7b718;
   color: white;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -100,17 +101,18 @@ ol > li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   border: 2px solid #f1f1f1;
 }
 
+ol > li > input {
+  margin-left: auto;
+}
+
 ol > li:not(#noNotesFound):hover {
-  border: 2px solid #242424;
+  border: 2px solid #e7b718;
 }
 
 ol > li.chechked > span {
@@ -130,6 +132,6 @@ ol > li[hidden] {
 
 ol > li.checked > span {
   text-decoration: line-through;
-  color: #858585;
+  color: #e7b718;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,5 @@
+
+$primary-color: #e7b718;
 html,
 body {
   margin: 0;
@@ -8,13 +10,13 @@ nav {
   display: flex;
   height: 30px;
   padding: 5px;
-  background: #242424;
+  background: $primary-color;
   font-size: 18pt;
   align-items: center;
   color: white;
 }
 hr {
-  border-color: #242424;
+  border-color: $primary-color;
 }
 
 .notesContainer {
@@ -28,6 +30,7 @@ hr {
   > h1:first-child {
     margin: 0;
   }
+  border: 2px solid $primary-color;
 }
 .inputContainer {
   display: flex;
@@ -41,7 +44,7 @@ hr {
     width: 20%;
     min-width: 50px;
     margin-left: 0px;
-    background: #242424;
+    background: $primary-color;
     color: white;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -81,12 +84,14 @@ ol {
     padding: 5px;
     font-size: 12pt;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     border: 2px solid #f1f1f1;
+    >input{
+      margin-left: auto;
+    }
   }
   > li:not(#noNotesFound):hover {
-    border: 2px solid #242424;
+    border: 2px solid $primary-color;
   }
   > li.chechked {
     > span {
@@ -103,7 +108,7 @@ ol {
   > li.checked {
     > span {
       text-decoration: line-through;
-      color: #858585;
+      color: $primary-color;
     }
   }
 }

@@ -30,10 +30,16 @@ function newNote(note) {
     updateNotes();
   });
   if (note.checked) newNoteLI.classList.add("checked");
+  const icon = document.createElement("img");
+  icon.src = "./assets/more_vert.svg";
+  icon.addEventListener("click", () => {
+    openContext(newNoteLI);
+  });
   const span = document.createElement("span");
   span.textContent = note.content;
   newNoteLI.appendChild(span);
   newNoteLI.appendChild(checkboxINPUT);
+  newNoteLI.appendChild(icon);
   allNotes.appendChild(newNoteLI);
 }
 function searchNote() {
@@ -50,4 +56,8 @@ function searchNote() {
     if (!identifiedElements.includes(li.id)) li.hidden = true;
     else li.hidden = false;
   });
+}
+
+function openContext(noteContainer) {
+  console.log(noteContainer);
 }
