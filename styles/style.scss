@@ -1,114 +1,80 @@
-
-$primary-color: #e7b718;
 html,
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   color: black;
+  background-color: lightgray;
 }
 nav {
   display: flex;
   height: 30px;
   padding: 5px;
-  background: $primary-color;
+  background: #184fe7;
   font-size: 18pt;
   align-items: center;
   color: white;
+  box-shadow: 0px 1px 4px black;
 }
 hr {
-  border-color: $primary-color;
+  border-color: lightgray;
 }
 
 .notesContainer {
-  min-width: 200px;
-  max-width: 500px;
-  height: 500px;
-  background: #f1f1f1;
-  margin: 10px auto;
+  height: 400px;
+  background: white;
   border-radius: 5px;
   padding: 20px;
-  > h1:first-child {
-    margin: 0;
+  position: absolute;
+  width: calc(100vw - 60px);
+  height: calc(100vh - 100px);
+  top: 50px;
+  left: 10px;
+  > h1 {
+    margin: 0px 0px 30px 0px;
   }
-  border: 2px solid $primary-color;
-}
-.inputContainer {
-  display: flex;
-  align-items: flex-end;
-  > input,
-  button {
-    padding: 5px 7px 5px 7px;
-    margin-bottom: 10px;
-  }
-  > button {
-    width: 20%;
-    min-width: 50px;
-    margin-left: 0px;
-    background: $primary-color;
-    color: white;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-  }
-  > input {
-    width: 80%;
-    min-width: 100px;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-  }
+  box-shadow: 0px 0px 4px black;
 }
 
-input, button {
-  background: white;
-  border: none;
-  outline: none;
-  font-weight: bolder;
-  font-size: 11pt;
-  font-family: unset;
-  color: black;
-}
+@import "./input.scss";
+@import "./list.scss";
 
-input#searchNote {
-  padding: 5px 7px 5px 7px;
-  margin-bottom: 10px;
-  width: 97%;
+$menuDuration: 200ms;
+.contextMenu {
+  width: 200px;
   border-radius: 3px;
+  box-shadow: 0px 0px 10px #797979;
+  position: absolute;
+  background-color: white;
+  top: calc(var(--y) * 1px);
+  left: calc(var(--x) * 1px);
+  transition-property: width, top, left, font-size;
+  transition-duration: $menuDuration;
+  transition-timing-function: ease;
+  &.hidden {
+    width: 0.1px;
+    font-size: 0pt;
+    >.option>img{
+      width: 0px;
+      height: 0px;
+    }
+  }
+
+  > hr {
+    margin: 0px auto;
+    border: 0.5px solid lightgray;
+  }
+  > .option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px;
+    &:hover {
+      background-color: rgb(235, 235, 235);
+    }
+    >img{
+      transition-property: width, height;
+      transition-duration: $menuDuration;
+    transition-timing-function: ease;    }
+  }
 }
 
-ol {
-  list-style-type: none;
-  padding: 0;
-  > li {
-    background: white;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 12pt;
-    display: flex;
-    align-items: center;
-    border: 2px solid #f1f1f1;
-    >input{
-      margin-left: auto;
-    }
-  }
-  > li:not(#noNotesFound):hover {
-    border: 2px solid $primary-color;
-  }
-  > li.chechked {
-    > span {
-      text-decoration: line-through;
-    }
-  }
-  > li#noNotesFound {
-    background: #f1f1f1;
-    justify-content: center;
-  }
-  > li[hidden] {
-    display: none;
-  }
-  > li.checked {
-    > span {
-      text-decoration: line-through;
-      color: $primary-color;
-    }
-  }
-}

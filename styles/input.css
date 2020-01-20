@@ -1,0 +1,83 @@
+.inputContainer {
+  position: relative;
+  border: 2px solid lightgray;
+  border-radius: 3px;
+  height: 26px;
+  margin-bottom: 15px;
+}
+
+.inputContainer:focus-within {
+  border: 2px solid black;
+}
+
+.inputContainer > label {
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  font-weight: bold;
+  -webkit-transition-property: top, font-size;
+  transition-property: top, font-size;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+}
+
+.inputContainer > input,
+.inputContainer button {
+  border: none;
+  outline: none;
+  font-weight: bolder;
+  font-size: 11pt;
+  font-family: unset;
+  position: absolute;
+}
+
+.inputContainer > input {
+  top: 0;
+  left: 0;
+  background: white;
+  color: black;
+  padding: 5px 7px 5px 7px;
+  border-radius: 3px;
+  outline: none;
+  width: calc(100% - 14px);
+}
+
+.inputContainer > input::-webkit-input-placeholder {
+  color: none;
+}
+
+.inputContainer > input:-ms-input-placeholder {
+  color: none;
+}
+
+.inputContainer > input::-ms-input-placeholder {
+  color: none;
+}
+
+.inputContainer > input::placeholder {
+  color: none;
+}
+
+.inputContainer > input:focus ~ label, .inputContainer > input:not(:placeholder-shown) ~ label {
+  top: -15px;
+  font-size: 10pt;
+}
+
+.inputContainer.button > button {
+  width: 60px;
+  background-color: #184fe7;
+  color: white;
+  position: absolute;
+  height: 26px;
+  right: 0px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.inputContainer.button > input {
+  border-radius: 3px 0px 0px 3px;
+  width: calc(100% - 75px);
+}
+/*# sourceMappingURL=input.css.map */

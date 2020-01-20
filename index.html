@@ -2,34 +2,57 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Notes</title>
-    <!--<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet" />-->
-    <link rel="stylesheet" href="./styles/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Notes</title>
+  <!--<link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet" />-->
+  <link rel="stylesheet" href="./styles/style.css" />
 </head>
 
 <body>
-    <nav>
-        <div class="title">Notes</div>
-    </nav>
-    <div class="notesContainer">
-        <h1>Your notes:</h1>
-        <br>
-        <br>
-        <div class="inputContainer" id="newNote">
-            <input type="text" placeholder="New note..." />
-            <button id="addNote">Add</button>
-        </div>
-            <input type="text" id="searchNote" placeholder="Search note..." />
-        <hr>
-        <ol id="notes">
-            <li hidden id="noNotesFound"><i><span>No notes found</span></i></li>
-        </ol>
+  <nav>
+    <div class="title">Notes</div>
+  </nav>
+  <div class="notesContainer">
+    <h1>Your notes:</h1>
+    <div class="inputContainer button error">
+      <input type="text" id="newNote" placeholder=" " />
+      <label for="newNote">New Note</label>
+      <button id="newNoteBTN">Add</button>
     </div>
-    
-    <script src="./script/app.js"></script>
+    <div class="inputContainer">
+      <input type="text" id="searchNote" placeholder=" " />
+      <label for="searchNote">Search Note</label>
+    </div>
+
+    <hr />
+
+    <ol id="notes">
+      <li hidden id="noNotesFound">
+        <i><span>No notes found</span></i>
+      </li>
+    </ol>
+
+    <div class="contextMenu" hidden>
+      <div class="option">
+        Delete
+        <img src="./assets/delete-24px.svg" id="delete" alt="delete" />
+      </div>
+      <hr />
+      <div class="option" id="bookmark">
+        Mark
+        <img src="./assets/bookmark_border-24px.svg" alt="Mark" />
+      </div>
+      <hr />
+      <div class="option" id="checkbox">
+        Check
+        <img src="./assets/check_box-24px.svg"  alt="Check" />
+      </div>
+    </div>
+  </div>
+
+  <script src="./script/app.js" type="module"></script>
 </body>
 
 </html>
