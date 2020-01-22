@@ -1,0 +1,58 @@
+.contextMenu {
+  width: 200px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 10px #797979;
+          box-shadow: 0px 0px 10px #797979;
+  position: absolute;
+  background-color: white;
+  top: calc(var(--y) * 1px);
+  left: calc(var(--x) * 1px);
+  -webkit-transition-property: width, top, left, font-size;
+  transition-property: width, top, left, font-size;
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+
+.contextMenu.hidden {
+  width: 0.1px;
+  font-size: 0pt;
+}
+
+.contextMenu.hidden > .option > img {
+  width: 0px;
+  height: 0px;
+}
+
+.contextMenu > hr {
+  margin: 0px auto;
+  border: 0.5px solid lightgray;
+}
+
+.contextMenu > .option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3px;
+}
+
+.contextMenu > .option:hover {
+  background-color: #ebebeb;
+}
+
+.contextMenu > .option > img {
+  -webkit-transition-property: width, height;
+  transition-property: width, height;
+  -webkit-transition-duration: 500ms;
+          transition-duration: 500ms;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+/*# sourceMappingURL=contextMenu.css.map */

@@ -1,4 +1,4 @@
-Array.prototype.upload = function() {
+Array.prototype.update = function() {
   window.localStorage.setItem("notes", JSON.stringify(this));
   return this;
 };
@@ -9,15 +9,17 @@ export default class ContextMenu {
     this.note = undefined;
     this.dom = document.querySelector(".contextMenu");
     this.notes = notes;
+    // marking function
     this.bookmarkDIV = this.dom.querySelector("#bookmark");
     this.bookmarkDIV.addEventListener("click", () => {
       this.note.marked = !this.note.marked;
       this.note.marked
         ? document.getElementById(this.note.id).classList.add("marked")
         : document.getElementById(this.note.id).classList.remove("marked");
-      this.notes.upload();
+      this.notes.update();
       this.updateBookmark();
     });
+    // checkbox function
     this.checkboxDIV = this.dom.querySelector("#checkbox");
     this.checkboxDIV.addEventListener("click", () => {
       this.note.checked = !this.note.checked;
@@ -30,8 +32,19 @@ export default class ContextMenu {
         ? document.getElementById(this.note.id).classList.add("checked")
         : document.getElementById(this.note.id).classList.remove("checked");
         this.updateCheckbox()
-      this.notes.upload();
+      this.notes.update();
     });
+    // delete function
+    this.deleteDIV = this.dom.querySelector("#delete")
+    this.deleteDIV.addEventListener("click", () => {
+      // delete children
+      document.getElementById(this.note.id).remove()
+      // delete note
+      this.notes.splice(this.notes.indexOf(this.note), 1)
+      this.notes.update()
+      // close contextMenu
+      this.display(false)
+    })
     // closing contextMenu
     window.addEventListener("click", e => {
       const element = e.target;

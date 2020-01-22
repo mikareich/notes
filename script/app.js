@@ -1,4 +1,4 @@
-Array.prototype.upload = function(){
+Array.prototype.update = function(){
   window.localStorage.setItem("notes", JSON.stringify(this));
   return this
 }
@@ -14,7 +14,6 @@ const newNoteINPUT = document.querySelector("#newNote");
 const contextMenu = new ContextMenu(notes)
 if (notes.length > 0) notes.forEach(note => newNote(note));
 // save notes in localstorage
-console.log(notes.upload())
 newNoteBTN.addEventListener("click", function() {
   // save note in array
   if (newNoteINPUT.value.trim() === "") return;
@@ -22,9 +21,9 @@ newNoteBTN.addEventListener("click", function() {
     content: newNoteINPUT.value.trim(),
     id: notes.length,
     checked: false,
-    marked: true
+    marked: false
   });
-  notes.upload()
+  notes.update()
   newNoteINPUT.value = "";
   newNoteINPUT.focus();
   // display note
@@ -44,7 +43,7 @@ function newNote(note) {
   checkboxIMG.addEventListener("click", function() {
     newNoteLI.classList.toggle("checked");
     note.checked = !note.checked;
-    notes.upload();
+    notes.update();
     checkboxIMG.src = note.checked
       ? "../assets/check_box-24px.svg"
       : "../assets/check_box_outline_blank-24px.svg";
