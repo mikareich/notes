@@ -1,8 +1,7 @@
-Array.prototype.update = function(){
+Array.prototype.update = function() {
   window.localStorage.setItem("notes", JSON.stringify(this));
-  return this
-}
-
+  return this;
+};
 
 import ContextMenu from "./contextMenu.js";
 
@@ -11,7 +10,7 @@ const allNotes = document.querySelector("#notes");
 const notes = JSON.parse(window.localStorage.getItem("notes")) || [];
 const newNoteBTN = document.querySelector("#newNoteBTN");
 const newNoteINPUT = document.querySelector("#newNote");
-const contextMenu = new ContextMenu(notes)
+const contextMenu = new ContextMenu(notes);
 if (notes.length > 0) notes.forEach(note => newNote(note));
 // save notes in localstorage
 newNoteBTN.addEventListener("click", function() {
@@ -23,7 +22,7 @@ newNoteBTN.addEventListener("click", function() {
     checked: false,
     marked: false
   });
-  notes.update()
+  notes.update();
   newNoteINPUT.value = "";
   newNoteINPUT.focus();
   // display note
@@ -50,7 +49,7 @@ function newNote(note) {
   });
 
   if (note.checked) newNoteLI.classList.add("checked");
-  if (note.marked) newNoteLI.classList.add("marked")
+  if (note.marked) newNoteLI.classList.add("marked");
   const moreIMG = document.createElement("img");
   moreIMG.src = "./assets/more_vert-24px.svg";
   moreIMG.classList.add("more");
@@ -91,15 +90,21 @@ function searchNote() {
   });
 }
 
-
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function(err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
+/* if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/sw.js").then(
+      function(registration) {
+        // Registration was successful
+        console.log(
+          "ServiceWorker registration successful with scope: ",
+          registration.scope
+        );
+      },
+      function(err) {
+        // registration failed :(
+        console.log("ServiceWorker registration failed: ", err);
+      }
+    );
   });
 }
+ */
