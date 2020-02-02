@@ -1,58 +1,75 @@
 ol {
+  margin: 0;
   list-style-type: none;
   padding: 0;
-  overflow-y: auto;
   position: absolute;
-  width: calc(100% - 40px);
-  height: calc(100% - 255px);
+  top: 62px;
+  height: calc(100vh - 62px);
+  width: 100vw;
+  min-height: 300px;
+  min-width: 200px;
 }
 
 ol > li {
-  background: white;
-  margin-bottom: 5px;
-  border-radius: 5px;
+  border-radius: 5px 5px 0px 0px;
+  position: absolute;
+  width: calc(100% - 20px);
+  top: calc(var(--x) * 1px);
+  height: calc(100% - var(--x) * 1px - 12px);
+  border-top: 2px solid #e4f0f2;
   padding: 5px;
-  font-size: 12pt;
+  -webkit-transition-property: top, height, background;
+  transition-property: top, height, background;
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+  left: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+ol > li:nth-child(odd) {
+  background-color: #0bbfbf;
+}
+
+ol > li:nth-child(even) {
+  background-color: #1497a6;
+}
+
+ol > li:hover {
+  background-color: #bf508d;
+}
+
+ol > li:hover:not(:last-child) {
+  top: 0;
+  height: calc(100% - 12px);
+}
+
+ol > li > .header {
+  height: 30px;
+  font-size: 15pt;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 2px solid lightgray;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-ol > li > .checkbox {
+ol > li > .header > img[alt="checkbox"] {
   margin-left: auto;
 }
 
-ol > li > span {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-ol > li:not(#noNotesFound):hover {
-  border: 2px solid black;
-}
-
-ol > li.marked {
-  border-color: black;
-  background-color: lightgray;
-}
-
-ol > li.checked > span {
-  text-decoration: line-through;
-}
-
-ol > li#noNotesFound {
-  background: lightgray;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-ol > li[hidden] {
-  display: none;
+ol > li .main {
+  text-align: justify;
 }
 /*# sourceMappingURL=list.css.map */

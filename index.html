@@ -8,64 +8,54 @@
   <title>Notes</title>
   <!--   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">   -->
   <link rel="stylesheet" href="./styles/style.css" />
-  <link rel="shortcut icon" href="./assets/check_box-24px.ico" type="image/x-icon">
-  <link rel="manifest" href="manifest.json">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Notes">
-  <meta name="apple-mobile-web-app-title" content="Notes">
-  <meta name="theme-color" content="#184fe7">
-  <meta name="msapplication-navbutton-color" content="#184fe7">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="msapplication-starturl" content="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="icon" type="svg" sizes="24x24" href="./assets/checkbox-24px.svg">
-  <link rel="apple-touch-icon" type="svg" sizes="24x24" href="./assets/checkbox-24px.svg">
+  <link rel="shortcut icon" href="./assets/check_box-24px.ico" type="image/x-icon" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="application-name" content="Notes" />
+  <meta name="apple-mobile-web-app-title" content="Notes" />
+  <meta name="theme-color" content="#184fe7" />
+  <meta name="msapplication-navbutton-color" content="#184fe7" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="msapplication-starturl" content="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link rel="icon" type="svg" sizes="24x24" href="./assets/checkbox-24px.svg" />
+  <link rel="apple-touch-icon" type="svg" sizes="24x24" href="./assets/checkbox-24px.svg" />
 </head>
 
 <body>
-  <nav>
+  <header>
     <div class="title">Notes</div>
+  </header>
+  <ol id="notes">
+    <li hidden id="noNotesFound">
+      <i><span>No notes found</span></i>
+    </li>
+  </ol>
+  <nav>
+    <img src="./assets/search-24px.svg" alt="search">
+    <img src="./assets/add-24px.svg" alt="new note">
+    <img src="./assets/settings-24px.svg" alt="settingst">
   </nav>
-  <div class="notesContainer">
-    <h1>Your notes:</h1>
-    <div class="inputContainer button error">
-      <input type="text" id="newNote" placeholder=" " />
-      <label for="newNote">New Note</label>
-      <button id="newNoteBTN">Add</button>
+  <div class="contextMenu" hidden>
+    <div class="option" id="checkbox">
+      Check
+      <img src="./assets/check_box-24px.svg" alt="Check" />
     </div>
-    <div class="inputContainer">
-      <input type="text" id="searchNote" placeholder=" " />
-      <label for="searchNote">Search Note</label>
-    </div>
-
     <hr />
-
-    <ol id="notes">
-      <li hidden id="noNotesFound">
-        <i><span>No notes found</span></i>
-      </li>
-    </ol>
-
-    <div class="contextMenu" hidden>
-      <div class="option" id="checkbox">
-        Check
-        <img src="./assets/check_box-24px.svg" alt="Check" />
-      </div>
-      <hr />
-      <div class="option" id="bookmark">
-        Mark
-        <img src="./assets/bookmark_border-24px.svg" alt="Mark" />
-      </div>
-      <hr />
-      <div class="option" id="delete">
-        Delete
-        <img src="./assets/delete-24px.svg" alt="delete" />
-      </div>
+    <div class="option" id="bookmark">
+      Mark
+      <img src="./assets/bookmark_border-24px.svg" alt="Mark" />
+    </div>
+    <hr />
+    <div class="option" id="delete">
+      Delete
+      <img src="./assets/delete-24px.svg" alt="delete" />
     </div>
   </div>
 
-  <script src="./script/app.js" type="module"></script>
+    <script src="./script/app.js" type="module"></script>
+
 </body>
 
 </html>
