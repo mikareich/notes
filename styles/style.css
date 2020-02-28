@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
-  background-color: #E4F0F2;
+  background-color: #f6f6f6;
 }
 
 header {
@@ -10,7 +10,7 @@ header {
   display: -ms-flexbox;
   display: flex;
   height: 30px;
-  padding: 16px 5px 16px 5px;
+  padding: 16px 20px 16px 20px;
   font-size: 30pt;
   font-weight: bold;
   -webkit-box-align: center;
@@ -23,7 +23,7 @@ nav {
   bottom: 0px;
   width: 100vw;
   height: 40px;
-  background-color: #3E3159;
+  background-color: #314e59;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,7 +37,7 @@ nav {
 nav > img[alt="new note"] {
   width: 50px;
   height: 50px;
-  background-color: #E4F0F2;
+  background-color: #a9d5f8;
   border-radius: 50%;
   position: absolute;
   top: -25px;
@@ -56,7 +56,7 @@ nav > img[alt="new note"]:hover {
           transform: rotate(180deg);
   -webkit-box-shadow: 0px 0px 6px black;
           box-shadow: 0px 0px 6px black;
-  background-color: #BF508D;
+  background-color: #8f9bd1;
 }
 
 ol {
@@ -74,10 +74,9 @@ ol {
 ol > li {
   border-radius: 5px 5px 0px 0px;
   position: absolute;
-  width: calc(100% - 20px);
+  width: calc(100% - 50px);
   top: calc(var(--x) * 1px);
   height: calc(100% - var(--x) * 1px - 12px);
-  border-top: 2px solid #e4f0f2;
   padding: 5px;
   -webkit-transition-property: top, height, background;
   transition-property: top, height, background;
@@ -85,7 +84,7 @@ ol > li {
           transition-duration: 200ms;
   -webkit-transition-timing-function: ease;
           transition-timing-function: ease;
-  left: 5px;
+  left: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,20 +95,24 @@ ol > li {
 }
 
 ol > li:nth-child(odd) {
-  background-color: #0bbfbf;
+  background-color: #fffbc1;
 }
 
 ol > li:nth-child(even) {
-  background-color: #1497a6;
+  background-color: #ffedd8;
 }
 
 ol > li:hover {
-  background-color: #bf508d;
+  background-color: #80d0ff;
+  top: calc(var(--x) * 1px - 15px);
 }
 
-ol > li:hover:not(:last-child) {
-  top: 0;
-  height: calc(100% - 12px);
+ol > li:hover > .header > .title {
+  font-weight: bold;
+}
+
+ol > li.checked > * {
+  text-decoration: line-through;
 }
 
 ol > li > .header {
@@ -124,6 +127,12 @@ ol > li > .header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+ol > li > .header > span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 ol > li > .header > img[alt="checkbox"] {

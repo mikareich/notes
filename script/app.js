@@ -85,6 +85,7 @@ function newNote(note) {
   // add children
   newNoteLI.appendChild(headerDIV);
   newNoteLI.appendChild(mainSpan);
+
   // display note
   allNotes.appendChild(newNoteLI);
 }
