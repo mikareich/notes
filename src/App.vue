@@ -1,32 +1,104 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <h1>Notes</h1>
+    <div class="action">
+      <button
+        @click="
+          addNote();
+          search = '';
+        "
+        class="neomorphism"
+      >
+        New note
+      </button>
+      <input
+        type="text"
+        class="neomorphism"
+        placeholder="Search note"
+        v-model="search"
+      />
     </div>
-    <router-view/>
+    <p v-show="notes.length === 0">No notes found</p>
+
+    <note
+      v-for="(note, index) in notes"
+      :key="index"
+      :note="note"
+      @delete="notes.splice(index, 1)"
+      v-show="search === '' || note.content.includes(search)"
+    ></note>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Note from "./components/Note";
+export default {
+  name: "App",
+  components: {
+    Note
+  },
+  data() {
+    return {
+      notes: [],
+      search: ""
+    };
+  },
+  methods: {
+    addNote() {
+      let note = { id: this.notes.length || 0, content: "", checked: false };
+      this.notes = [...this.notes, note];
+    }
+  },
+  watch: {
+    notes: function() {
+      window.localStorage.setItem("notes", JSON.stringify(this.notes));
+    }
+  },
+  created() {
+    this.notes = JSON.parse(window.localStorage.getItem("notes")) || [];
+  }
+};
+</script>
 
-#nav {
-  padding: 30px;
+<style lang="css">
+html,
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #262626;
+  color: white;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.action {
+  display: flex;
+  justify-content: space-between;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+input {
+  border: none;
+  font-size: 11pt;
+  font-family: unset;
+  outline: none;
+  background: transparent;
+  color: white;
+  padding: 10px 12px;
+}
+button {
+  border: none;
+  font-size: 11pt;
+  font-family: unset;
+  background: #262626;
+  color: white;
+  padding: 10px 12px;
+  outline: none;
+  transform: 200ms;
+}
+.neomorphism {
+  box-shadow: #000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
+  border-radius: 5px;
+}
+button.neomorphism:active {
+  box-shadow: inset #000000 4px 4px 8px, inset #4d4d4d -4px -4px 8px;
 }
 </style>
