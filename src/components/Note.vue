@@ -3,7 +3,11 @@
     <i class="material-icons" @click="note.checked = !note.checked">{{
       note.checked ? "check_box" : "check_box_outline_blank"
     }}</i>
-    <input class="content" v-model="note.content" />
+    <input
+      class="content"
+      v-model="note.content"
+      placeholder="Edit note here"
+    />
     <i class="material-icons" @click="this.delete">delete</i>
   </div>
 </template>

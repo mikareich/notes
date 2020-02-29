@@ -73,7 +73,6 @@ body {
 }
 .action {
   display: flex;
-  justify-content: space-between;
 }
 input {
   border: none;
@@ -83,6 +82,9 @@ input {
   background: transparent;
   color: white;
   padding: 10px 12px;
+  width: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 button {
   border: none;
@@ -93,6 +95,7 @@ button {
   padding: 10px 12px;
   outline: none;
   transform: 200ms;
+  width: 100px;
 }
 .neomorphism {
   box-shadow: #000000 4px 4px 8px, #4d4d4d -4px -4px 8px;
