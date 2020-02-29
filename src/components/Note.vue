@@ -35,7 +35,9 @@ export default {
   color: white;
   justify-content: space-between;
 }
-
+input {
+  margin-right: 10px;
+}
 .note.checked .content {
   text-decoration: line-through;
 }

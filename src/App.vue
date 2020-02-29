@@ -22,15 +22,19 @@
         v-model="search"
       />
     </div>
-    <p v-show="notes.length === 0">No notes found</p>
 
     <note
       v-for="(note, index) in notes"
       :key="index"
       :note="note"
       @delete="notes.splice(index, 1)"
-      v-show="search === '' || note.content.includes(search)"
+      v-show="
+        search === '' ||
+          note.content.toLowerCase().includes(search.toLowerCase())
+      "
     ></note>
+    <p v-if="notes.length === 0">You have no notes</p>
+    <p v-else>You have {{ notes.length }} notes</p>
   </div>
 </template>
 
@@ -84,7 +88,6 @@ input {
   padding: 10px 12px;
   width: 100%;
   margin-left: 10px;
-  margin-right: 10px;
 }
 button {
   border: none;
