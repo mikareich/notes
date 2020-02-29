@@ -32,6 +32,7 @@
         search === '' ||
           note.content.toLowerCase().includes(search.toLowerCase())
       "
+      @watch="saveNotes()"
     ></note>
     <p v-if="notes.length === 0">You have no notes</p>
     <p v-else>You have {{ notes.length }} notes</p>
@@ -47,7 +48,7 @@ export default {
   },
   data() {
     return {
-      notes: [],
+      notes: null,
       search: ""
     };
   },
@@ -55,11 +56,15 @@ export default {
     addNote() {
       let note = { id: this.notes.length || 0, content: "", checked: false };
       this.notes = [...this.notes, note];
+      this.saveNotes();
+    },
+    saveNotes() {
+      window.localStorage.setItem("notes", JSON.stringify(this.notes));
     }
   },
   watch: {
     notes: function() {
-      window.localStorage.setItem("notes", JSON.stringify(this.notes));
+      this.saveNotes();
     }
   },
   created() {
@@ -87,7 +92,7 @@ input {
   color: white;
   padding: 10px 12px;
   width: 100%;
-  margin-left: 10px;
+  margin-left: 12px;
 }
 button {
   border: none;

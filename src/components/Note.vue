@@ -1,25 +1,26 @@
 <template>
   <div class="note neomorphism" :class="{ checked: note.checked }">
-    <i class="material-icons" @click="note.checked = !note.checked">{{
-      note.checked ? "check_box" : "check_box_outline_blank"
-    }}</i>
+    <i
+      class="material-icons"
+      @click="
+        note.checked = !note.checked;
+        $emit('watch');
+      "
+      >{{ note.checked ? "check_box" : "check_box_outline_blank" }}</i
+    >
     <input
       class="content"
       v-model="note.content"
       placeholder="Edit note here"
+      @keyup="$emit('watch')"
     />
-    <i class="material-icons" @click="this.delete">delete</i>
+    <i class="material-icons" @click="$emit('delete')">delete</i>
   </div>
 </template>
 <script>
 export default {
   name: "Note",
-  props: ["note"],
-  methods: {
-    delete() {
-      this.$emit("delete");
-    }
-  }
+  props: ["note"]
 };
 </script>
 <style scoped>
